@@ -1,41 +1,41 @@
-﻿# Anomaly Detection Engine  
-Detección de anomalías multivariante utilizando Distancia de Mahalanobis y umbrales basados en Chi-cuadrado.
+﻿# Anomaly Detection Engine
+Multivariate anomaly detection system utilizing Mahalanobis Distance and Chi-squared distribution thresholds.
 
-Este motor implementa un sistema estadístico robusto para identificar puntos atípicos en datos multivariantes. Está diseñado para aplicaciones reales donde es necesario detectar comportamientos inusuales, tales como:
+This engine implements a robust statistical framework to identify outliers in multivariate datasets. It is engineered for real-world applications where detecting unusual behavior is critical, such as:
 
-- Transacciones bancarias
-- Sensores industriales
-- Tráfico de red
-- Datos biométricos
-- Monitoreo de sistemas en tiempo real
-
----
-
-## Características Principales
-
-### Distancia de Mahalanobis
-A diferencia de la distancia euclidiana, la distancia de Mahalanobis considera:
-- Correlación entre variables
-- Diferencias de escala
-- Forma real de la distribución
-
-Esto permite detectar outliers incluso cuando los datos forman elipses en lugar de círculos.
-
-### Umbral Basado en Chi-Cuadrado
-El motor calcula automáticamente el umbral crítico utilizando la distribución Chi-cuadrado:
-- Los grados de libertad corresponden al número de dimensiones
-- El nivel de confianza define la severidad del detector (ej. 0.95, 0.99)
-
-### API Estilo scikit-learn
-El motor expone métodos simples y profesionales:
-- **fit(X)**: aprende la distribución normal multivariante.
-- **predict(X)**: determina si un punto es anómalo.
-- **calculate_distance(X)**: calcula la distancia de Mahalanobis.
-- **get_anomaly_score(X)**: devuelve un score normalizado (>1 indica anomalía).
+- Banking & Financial Fraud
+- Industrial Sensor Failures
+- Network Intrusion Detection
+- Biometric Data Validation
+- Real-time System Monitoring
 
 ---
 
-## Estructura del Proyecto
+## Technical Highlights
+
+### Mahalanobis Distance
+Unlike standard Euclidean distance, the Mahalanobis distance accounts for:
+- Correlation between variables
+- Scaling differences between features
+- The actual geometric shape of the data distribution
+
+This allows the engine to detect outliers even when the data forms elongated ellipses rather than perfect circles.
+
+### Chi-Squared Thresholding
+The engine automatically calculates the critical threshold using the Chi-squared distribution:
+- Degrees of freedom correspond to the number of input dimensions.
+- Confidence levels define the detector's sensitivity (e.g., 0.95, 0.99).
+
+### Scikit-learn Style API
+The engine exposes a clean, professional interface:
+- **fit(X)**: Learns the multivariate normal distribution.
+- **predict(X)**: Determines if a data point is anomalous.
+- **calculate_distance(X)**: Computes the raw Mahalanobis distance.
+- **get_anomaly_score(X)**: Returns a normalized score (>1 indicates an anomaly).
+
+---
+
+## Project Structure
 
 ```text
 6_Anomaly_Detection_Engine/
@@ -54,24 +54,24 @@ El motor expone métodos simples y profesionales:
 
 ---
 
-## Pruebas Unitarias e Instalación
+## Testing & Installation
 
-Las pruebas validan que puntos normales no sean marcados como anomalías y que outliers extremos sean detectados correctamente.
+Unit tests validate that normal data points are not flagged and that extreme outliers are correctly identified.
 
-**Ejecutar pruebas:**
+**Run Tests:**
 ```bash
 python -m pytest -s
 ```
 
-**Ejecución de la Demo:**
+**Run Demo:**
 ```bash
 python main.py
 ```
 
-## Requerimientos
+## Requirements
 - numpy
 - scipy
 - pytest
 
-## Licencia
-MIT License — libre para uso académico y profesional.
+## License
+MIT License — Free for academic and professional use.
